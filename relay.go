@@ -7,6 +7,8 @@ import (
 	"io"
 	"net"
 	"sync"
+
+	"github.com/zjiekai/relay/monitor"
 )
 
 var (
@@ -16,6 +18,7 @@ var (
 )
 
 func Start() {
+	monitor.Init()
 	ln, err := net.Listen("tcp", *laddr)
 	if err != nil {
 		return
@@ -50,7 +53,9 @@ func Pipe(src io.ReadWriteCloser, dst io.ReadWriteCloser) (int64, int64) {
 		o.Do(close)
 	}()
 
+	monitor.PipeOpen()
 	<-c
+	monitor.PipeClose()
 	return sent, received
 }
 
@@ -91,6 +96,6 @@ func handleConn(c net.Conn) {
 }
 
 func main() {
-	flag.Parse()
+  flag.Parse()
 	Start()
 }
