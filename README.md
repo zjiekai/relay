@@ -2,8 +2,7 @@
 
 Run this inside the GFW
 
-`$ ./relay -l 0.0.0.0:12345 -r <remote>:12345 -w`
-
+`$ ./relay -l 0.0.0.0:12345 -r <remote>:12345 -w -logtostderr`
 
 Run this outside the GFW
 
@@ -14,8 +13,8 @@ Run this outside the GFW
 #### v0.0.1
 * A working encrypted TCP relay in less than 100 lines of code
 
-#### v0.1.*
-* WIP
+#### v0.1.0
+* A monitor package showing how many TCP connections are open
 
 ### See Also
 
