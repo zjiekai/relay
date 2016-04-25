@@ -3,6 +3,8 @@ package main_test
 import (
 	"bytes"
 	"testing"
+
+	"github.com/golang/glog"
 )
 
 // func TestGo(t *testing.T) {
@@ -33,4 +35,9 @@ func TestGo2(t *testing.T) {
 
 func TestCipher(t *testing.T) {
 
+}
+
+func TestGlog(t *testing.T) {
+	//$ go test -v -logtostderr
+	glog.Info("zjk")
 }
